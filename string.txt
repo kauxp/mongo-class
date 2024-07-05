@@ -1,0 +1,1 @@
+mongodb+srv://kauxp:F@ceb00k!@cluster0.ttc3saq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
