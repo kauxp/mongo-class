@@ -14,6 +14,7 @@ mongoose.connect(process.env.MONGO_URL)
 })
 
 app.use('/api/products', productRouter);
+app.use('/api/users' , userRoutes)
 
 app.listen(3030, () => {
     console.log('Server is running on port 3030');
