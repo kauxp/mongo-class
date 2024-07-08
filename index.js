@@ -44,6 +44,27 @@ app.post('/api/products', async (req, res) => {
     console.log(product);
     return res.status(201).json({message: 'Product created successfully'});
 })
+
+app.get('/api/products', async (req, res) => {
+    const products= await productModel.find({isInStock: true}); //gives only those products which are in stock
+    return res.status(200).json(products);
+})
+
+app.get('/api/products/:id', async (req, res) => {
+    const product= await productModel.findById(req.params.id);
+    return res.json(product);
+})
+
+app.delete('/api/products/:id', async(req, res)=>{
+    const product = await productModel.findByIdAndDelete(req.params.id);
+    return res.json(product);
+})
+
+app.put('/api/products/:id', async(req,res)=>{
+    const product = await productModel.findByIdAndUpdate(req.params);
+    return res.json(product);
+})
+
 app.listen(3030, () => {
     console.log('Server is running on port 3030');
 })
